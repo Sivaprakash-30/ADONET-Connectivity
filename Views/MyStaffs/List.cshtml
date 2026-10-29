@@ -1,0 +1,67 @@
+@model IEnumerable<ADONET.Models.Staffs>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+<p>
+        <a asp-action="Addstaff">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staffAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staffAddress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.StaffID}) |
+                        @Html.ActionLink("Details", "GetbyId", new { id = item.StaffID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.StaffID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
